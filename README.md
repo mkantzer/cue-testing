@@ -20,6 +20,4 @@ Discussion: A Cue based Approach to k8s manifests:
 and then maybe also playing around with some k8s tooling?
 
 ## Reading the top-level stuff:
-- `generic.cue`: contains "generic" application definition schema. These are the user-facing interface, that will be used to specify "inputs"
-- `proj_defaults.cue`: contains some default labels to apply to all objects
-- `k8s.cue`: contains the generic -> kubernetes transformations
+
