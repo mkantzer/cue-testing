@@ -14,8 +14,8 @@ Basically, the plan is to go through the workflow shown below. For each step, i'
      - Raw YAML Job (?) (nah... not for now)
      - ~~Raw YAML Monitoring Stack~~ 
        - do this later, using [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus/tree/main/manifests) (?)
-2. Use cue (with the k8s gen?) to validate the raw yaml
-3. Convert raw YAML to raw CUE (no templating)
+2. Convert raw YAML to raw CUE (no templating)
+3. Use cue (with the k8s gen?) to validate the CUE
 4. Attempt to set up some commands
 5. Look at the Cue Guide, following a bit on how to massage or standardize things
 6. Work on componetization / abstraction
@@ -30,3 +30,9 @@ kubectl apply -f applications
 ```
 Note: if ingress's fail to apply b/c webhooks time out, just wait a bit for the ingress controller to come up.
 
+## `progress-02`
+
+Import the YAML and turn it into cue syntax. 
+```sh
+cue import ./... -p "github.com/mikekantzer-drizly/cue-testing" -l 'strings.ToCamel(kind)' -l metadata.name -f
+```
