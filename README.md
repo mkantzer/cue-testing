@@ -1,23 +1,20 @@
 # cue-testing
 
-A lot of this is me working through https://cuetorials.com/first-steps/validate-configuration/
-Next Step: https://cuetorials.com/first-steps/generate-configuration/
+This repo (or at least the branches starting with `progress-##`) track my attempt to go from "raw yaml" to "cue'd up nonsense". 
 
-Additional reading:
-Tools that use cue:
-- https://kubevela.io/docs/platform-engineers/cue/basic
-- https://docs.dagger.io/1215/what-is-cue/
+Basically, the plan is to go through the workflow shown below. For each step, i'll make a new branch from HEAD of the last branch, on which I'll do the work for that step. Hopefully, this will show some easy-to-review progress.
 
-A repo implementing cue:
-- https://github.com/uhthomas/automata/tree/main
-
-Discussion: A Cue based Approach to k8s manifests:
-- https://engineering.mercari.com/en/blog/entry/20220127-kubernetes-configuration-management-with-cue/
-- https://engineering.mercari.com/en/blog/entry/20220122-adventures-of-using-cue-at-scale/
-- https://github.com/cue-lang/cue/discussions/806#discussioncomment-1517391
-- https://github.com/slewiskelly/cuek8s
-
-and then maybe also playing around with some k8s tooling?
-
-## Reading the top-level stuff:
-
+Steps/Plan:
+1. Create an initial deployable
+  - a KIND cluster config
+  - Raw YAML Ingress Controller
+  - Raw YAML Deployment/Service/Ingress x2
+  - Raw YAML Deployment
+  - Raw YAML Job (?)
+  - Raw YAML Monitoring Stack
+2. Use cue (with the k8s gen?) to validate the raw yaml
+3. Convert raw YAML to raw CUE (no templating)
+4. Attempt to set up some commands
+5. Look at the Cue Guide, following a bit on how to massage or standardize things
+6. Work on componetization / abstraction
+7. Attempt to configure multiple deploy targets
