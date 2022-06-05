@@ -9,17 +9,17 @@ import (
 )
 
 command: importYaml: {
- task: glob: file.Glob & {
-  glob: "*.yaml"
-  files: [...string]
- }
+	task: glob: file.Glob & {
+		glob: "*.yaml"
+		files: [...string]
+	}
 
-//  task: display: {
-//   kind: "print"
-//   text: "Found Files:\n" + strings.Join(task.glob.files, "\n")
-//  }
+	//  task: display: {
+	//   kind: "print"
+	//   text: "Found Files:\n" + strings.Join(task.glob.files, "\n")
+	//  }
 
- task: import: exec.Run & {
-  cmd: "cue import -f -l strings.ToCamel(kind) -l metadata.name  -p kube \(strings.Join(task.glob.files, " "))"
- }
+	task: import: exec.Run & {
+		cmd: "cue import -f -l strings.ToCamel(kind) -l metadata.name  -p kube \(strings.Join(task.glob.files, " "))"
+	}
 }

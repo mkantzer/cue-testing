@@ -1,11 +1,11 @@
 // package kube
 
 // import (
-// 	// "text/tabwriter"
-// 	"strings"
-// 	// "tool/cli"
-// 	"tool/exec"
-// 	"tool/file"
+//  // "text/tabwriter"
+//  "strings"
+//  // "tool/cli"
+//  "tool/exec"
+//  "tool/file"
 // )
 
 // command: validate: {
