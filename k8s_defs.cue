@@ -16,11 +16,11 @@ objects: [ for v in objectSets for x in v {x}]
 objectSets: [
 	service,
 	deployment,
-  namespace,
-  ingress,
+	namespace,
+	ingress,
 ]
 
+namespace: [string]:  core_v1.#Namespace
 deployment: [string]: apps_v1.#Deployment
-service: [string]: core_v1.#Service
-namespace: [string]: core_v1.#Namespace
-ingress: [string]: networking_v1.#Ingress
+service: [string]:    core_v1.#Service
+ingress: [string]:    networking_v1.#Ingress

@@ -8,7 +8,7 @@ command: ls: {
 		let Lines = [
 			for x in objects {
 				"\(x.kind)  \t\(x.metadata.name)"
-			}
+			},
 		]
 		text: strings.Join(Lines, "\n")
 	}

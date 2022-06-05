@@ -10,8 +10,8 @@ metadata:
   name: test-app-1
 spec:
   minReadySeconds: 10
-  # replicas: 2
-  replicas: THISONEBETTERFAIL
+  replicas: 2
+  # replicas: THISONEBETTERFAIL
   revisionHistoryLimit: 10
   selector:
     matchLabels:
