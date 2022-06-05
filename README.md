@@ -14,8 +14,8 @@ Basically, the plan is to go through the workflow shown below. For each step, i'
      - Raw YAML Job (?) (nah... not for now)
      - ~~Raw YAML Monitoring Stack~~ 
        - do this later, using [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus/tree/main/manifests) (?)
-2. Convert raw YAML to raw CUE (no templating)
-3. Use cue (with the k8s gen?) to validate the CUE
+2. Use cue (with the k8s gen?) to validate the CUE
+3. Convert raw YAML to raw CUE (no templating)
 4. Attempt to set up some commands
 5. Look at the Cue Guide, following a bit on how to massage or standardize things
 6. Work on componetization / abstraction

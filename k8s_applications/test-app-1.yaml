@@ -1,5 +1,4 @@
 ---
-namespace:
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -12,6 +11,7 @@ metadata:
 spec:
   minReadySeconds: 10
   replicas: 2
+  # replicas: THISONEBETTERFAIL
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -32,7 +32,6 @@ spec:
             - containerPort: 80
               name: api
 ---
-service:
 apiVersion: v1
 kind: Service
 metadata:
