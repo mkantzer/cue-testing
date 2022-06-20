@@ -52,23 +52,6 @@ service: "test-app": {
 		selector: name: "test-app"
 	}
 }
-service: "test-app": {
-	apiVersion: "v1"
-	kind:       "Service"
-	metadata: {
-		labels: name: "test-app"
-		name:      "test-app"
-		namespace: "test-app"
-	}
-	spec: {
-		ports: [{
-			name:       "test-app-api"
-			port:       80
-			targetPort: 80
-		}]
-		selector: name: "test-app"
-	}
-}
 ingress: "test-app": {
 	apiVersion: "networking.k8s.io/v1"
 	kind:       "Ingress"

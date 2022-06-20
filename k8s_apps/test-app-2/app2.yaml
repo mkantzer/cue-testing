@@ -2,24 +2,24 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: test-app
+  name: test-banana
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-app
-  namespace: test-app
+  name: test-banana
+  namespace: test-banana
 spec:
   minReadySeconds: 10
   replicas: 2
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      name: test-app
+      name: test-banana
   template:
     metadata:
       labels:
-        name: test-app
+        name: test-banana
     spec:
       containers:
       - env:
@@ -27,7 +27,7 @@ spec:
           value: "80"
         image: ealen/echo-server:0.5.1
         imagePullPolicy: IfNotPresent
-        name: test-app
+        name: test-banana
         ports:
         - containerPort: 80
           name: api
@@ -36,37 +36,22 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: test-app
-  name: test-app
-  namespace: test-app
+    name: test-banana
+  name: test-banana
+  namespace: test-banana
 spec:
   ports:
-  - name: test-app-api
+  - name: test-banana-api
     port: 80
     targetPort: 80
   selector:
-    name: test-app
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    name: test-app
-  name: test-app
-  namespace: test-app
-spec:
-  ports:
-  - name: test-app-api
-    port: 80
-    targetPort: 80
-  selector:
-    name: test-app
+    name: test-banana
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: test-app
-  namespace: test-app
+  name: test-banana
+  namespace: test-banana
 spec:
   ingressClassName: nginx
   rules:
@@ -74,9 +59,8 @@ spec:
       paths:
       - backend:
           service:
-            name: test-app
+            name: test-banana
             port:
               number: 80
         path: /
         pathType: Prefix
-
