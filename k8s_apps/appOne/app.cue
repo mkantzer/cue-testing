@@ -1,24 +1,24 @@
 package kube
 
-namespace: "test-app": {
+kubernetes: namespace: appOne: {
 	apiVersion: "v1"
 	kind:       "Namespace"
-	metadata: name: "test-app"
+	metadata: name: "appOne"
 }
-deployment: "test-app": {
+kubernetes: deployment: appOne: {
 	apiVersion: "apps/v1"
 	kind:       "Deployment"
 	metadata: {
-		name:      "test-app"
-		namespace: "test-app"
+		name:      "appOne"
+		namespace: "appOne"
 	}
 	spec: {
 		minReadySeconds:      10
 		replicas:             2
 		revisionHistoryLimit: 10
-		selector: matchLabels: name: "test-app"
+		selector: matchLabels: name: "appOne"
 		template: {
-			metadata: labels: name: "test-app"
+			metadata: labels: name: "appOne"
 			spec: containers: [{
 				env: [{
 					name:  "PORT"
@@ -26,7 +26,7 @@ deployment: "test-app": {
 				}]
 				image:           "ealen/echo-server:0.5.1"
 				imagePullPolicy: "IfNotPresent"
-				name:            "test-app"
+				name:            "appOne"
 				ports: [{
 					containerPort: 80
 					name:          "api"
@@ -35,36 +35,36 @@ deployment: "test-app": {
 		}
 	}
 }
-service: "test-app": {
+kubernetes: service: appOne: {
 	apiVersion: "v1"
 	kind:       "Service"
 	metadata: {
-		labels: name: "test-app"
-		name:      "test-app"
-		namespace: "test-app"
+		labels: name: "appOne"
+		name:      "appOne"
+		namespace: "appOne"
 	}
 	spec: {
 		ports: [{
-			name:       "test-app-api"
+			name:       "appOne-api"
 			port:       80
 			targetPort: 80
 		}]
-		selector: name: "test-app"
+		selector: name: "appOne"
 	}
 }
-ingress: "test-app": {
+kubernetes: ingress: appOne: {
 	apiVersion: "networking.k8s.io/v1"
 	kind:       "Ingress"
 	metadata: {
-		name:      "test-app"
-		namespace: "test-app"
+		name:      "appOne"
+		namespace: "appOne"
 	}
 	spec: {
 		ingressClassName: "nginx"
 		rules: [{
 			http: paths: [{
 				backend: service: {
-					name: "test-app"
+					name: "appOne"
 					port: number: 80
 				}
 				path:     "/"
