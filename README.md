@@ -1,6 +1,6 @@
 # cue-testing
 
-This repo (or at least the branches starting with `progress-##`) track my attempt to go from "raw yaml" to "cue'd up nonsense". 
+This repo is intended to demonstrate and track my attempts to go from "raw yaml" to "cue'd up nonsense". 
 
 ## Structure
 
@@ -14,8 +14,26 @@ Using this approach, the different kind of directories within a module can be as
 > medial directories: policy
 > leaf directories: data
 
+## Instances
+
+- **k8s_apps/appOne/[environment]**: demonstrates how to organize YAML such that it can be validated and evaluated, and have some default values added.
+- **k8s_apps/appTwo/[environment]**: demonstrates how a direct import of YAML would be structured
+- **k8s_apps/appThree/[environment]**: demonstrates how to shift some shared components out of a instance directories and into a shared parent.
+- **k8s_apps/appFour/[environment]**: demonstrates how defaults and templates can be used to drastically reduce boilerplate
+
+
+
 
 ## Tasks
+
+### Validate YAML
+
+```sh
+cd k8s_apps/appOne/local
+cue validateYAML
+```
+
+
 
 ### YAML -> CUE file import
 

@@ -38,30 +38,30 @@ kubernetes: {
 	ingress: [string]:    networking_v1.#Ingress
 }
 
-// // Things used _for now_ for loose validation. Will likely go away soon. 
-// // #Schema: core_v1.#Namespace | apps_v1.#Deployment | core_v1.#Service | networking_v1.#Ingress
-// #Schema: #Namespace | #Deployment | #Service | #Ingress
+// Things used _for now_ for loose validation. Will likely go away soon, or be otherwise refactored
+// #Schema: core_v1.#Namespace | apps_v1.#Deployment | core_v1.#Service | networking_v1.#Ingress
+#Schema: #Namespace | #Deployment | #Service | #Ingress
 
-// #Namespace: {
-//  apiVersion: "v1"
-//  kind:       "Namespace"
-//  ...
-// }
+#Namespace: {
+	apiVersion: "v1"
+	kind:       "Namespace"
+	...
+}
 
-// #Deployment: {
-//  apiVersion: "apps/v1"
-//  kind:       "Deployment"
-//  ...
-// }
+#Deployment: {
+	apiVersion: "apps/v1"
+	kind:       "Deployment"
+	...
+}
 
-// #Service: {
-//  apiVersion: "v1"
-//  kind:       "Service"
-//  ...
-// }
+#Service: {
+	apiVersion: "v1"
+	kind:       "Service"
+	...
+}
 
-// #Ingress: {
-//  apiVersion: "networking.k8s.io/v1"
-//  kind:       "Ingress"
-//  ...
-// }
+#Ingress: {
+	apiVersion: "networking.k8s.io/v1"
+	kind:       "Ingress"
+	...
+}
