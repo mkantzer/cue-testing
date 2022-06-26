@@ -14,6 +14,9 @@ Using this approach, the different kind of directories within a module can be as
 > medial directories: policy
 > leaf directories: data
 
+> **Note**
+> Almost every `cue cmd` command in this repo will expect to be run from an instance.
+
 ## Instances
 
 - **k8s_apps/appOne/[environment]**: demonstrates how to organize YAML such that it can be validated and evaluated, and have some default values added.
