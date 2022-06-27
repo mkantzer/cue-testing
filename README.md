@@ -1,9 +1,10 @@
 # cue-testing
 
-This repo is intended to demonstrate and track my attempts to go from "raw yaml" to "cue'd up nonsense". 
-
 > **Note**
 > This repo is still a work in progress
+
+This repo is intended to demonstrate and track my attempts to go from "raw yaml" to "cue'd up nonsense". 
+
 
 ## Structure
 
@@ -13,9 +14,9 @@ The majority of the files in this module belong to the `kube` package.
 Each valid working directory (ex: k8s_apps/[appName]/[environment], or similar for infra) is an INSTANCE. Each `instance` contains the working directory, as well as all ancestor directories within the module. 
 
 Using this approach, the different kind of directories within a module can be ascribed the following roles:
-> module root: schema
-> medial directories: policy
-> leaf directories: data
+> - module root: schema
+> - medial directories: policy
+> - leaf directories: data
 
 > **Note**
 > Almost every `cue cmd` command in this repo will expect to be run from an instance.
@@ -26,8 +27,6 @@ Using this approach, the different kind of directories within a module can be as
 - **k8s_apps/appTwo/[environment]**: demonstrates how a direct import of YAML would be structured
 - **k8s_apps/appThree/[environment]**: demonstrates how to shift some shared components out of a instance directories and into a shared parent.
 - **k8s_apps/appFour/[environment]**: demonstrates how defaults and templates can be used to drastically reduce boilerplate
-
-
 
 
 ## Tasks
