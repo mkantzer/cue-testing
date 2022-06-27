@@ -2,6 +2,9 @@
 
 This repo is intended to demonstrate and track my attempts to go from "raw yaml" to "cue'd up nonsense". 
 
+> **Note**
+> This repo is still a work in progress
+
 ## Structure
 
 This repo is the _module_ called "github.com/mikekantzer-drizly/cue-testing"
