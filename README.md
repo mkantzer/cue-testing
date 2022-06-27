@@ -14,9 +14,9 @@ The majority of the files in this module belong to the `kube` package.
 Each valid working directory (ex: k8s_apps/[appName]/[environment], or similar for infra) is an INSTANCE. Each `instance` contains the working directory, as well as all ancestor directories within the module. 
 
 Using this approach, the different kind of directories within a module can be ascribed the following roles:
-> - module root: schema
-> - medial directories: policy
-> - leaf directories: data
+- module root: schema
+- medial directories: policy
+- leaf directories: data
 
 > **Note**
 > Almost every `cue cmd` command in this repo will expect to be run from an instance.
