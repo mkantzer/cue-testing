@@ -8,7 +8,7 @@ kubernetes: deployment: appTwo: {
 		namespace: "appTwo"
 		labels: {
 			name: "appTwo"
-			env: "local"
+			env: "integration"
 		}
 	}
 	spec: {

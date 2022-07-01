@@ -6,7 +6,7 @@ kubernetes: service: appTwo: {
 	metadata: {
 		labels: {
 			name: "appTwo"
-			env: "local"
+			env: "integration"
 		}
 		name:      "appTwo"
 		namespace: "appTwo"
