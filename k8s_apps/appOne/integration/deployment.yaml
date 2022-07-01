@@ -6,7 +6,7 @@ metadata:
   namespace: appOne
   labels:
     name: appOne
-    env: local
+    env: integration
 spec:
   minReadySeconds: 10
   replicas: 2

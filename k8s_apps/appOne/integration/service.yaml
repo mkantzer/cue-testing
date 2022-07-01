@@ -4,7 +4,7 @@ kind: Service
 metadata:
   labels:
     name: appOne
-    env: local
+    env: integration
   name: appOne
   namespace: appOne
 spec:

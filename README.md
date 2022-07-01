@@ -38,8 +38,6 @@ cd k8s_apps/appOne/local
 cue validateYAML
 ```
 
-
-
 ### YAML -> CUE file import
 
 Execute this _in an instance with YAML files_:
