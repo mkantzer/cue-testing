@@ -1,4 +1,4 @@
-package kube
+package kubeButYAML
 
 import (
 	"tool/cli"

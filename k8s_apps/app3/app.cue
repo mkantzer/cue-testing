@@ -49,7 +49,7 @@ kubernetes: {
 	}
 	ingress: appThree: {
 		spec: {
-			ingressClassName: "nginx"
+			// ingressClassName: "nginx"
 			rules: [{
 				http: paths: [{
 					backend: service: {
