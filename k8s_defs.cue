@@ -2,6 +2,7 @@ package kube
 
 import (
 	"strings"
+
 	core_v1 "k8s.io/api/core/v1"
 	apps_v1 "k8s.io/api/apps/v1"
 	networking_v1 "k8s.io/api/networking/v1"
@@ -19,7 +20,7 @@ kubernetes: [Kind=_]: [Name=_]: {
 		name: Name
 		labels: {
 			name: Name
-			env: string
+			env:  string
 		}
 	}
 }

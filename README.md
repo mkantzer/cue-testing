@@ -25,8 +25,9 @@ Using this approach, the different kind of directories within a module can be as
 
 - **k8s_apps/appOne/[environment]**: demonstrates how to organize YAML such that it can be validated and evaluated, and have some default values added.
 - **k8s_apps/appTwo/[environment]**: demonstrates how a direct import of YAML would be structured
-- **k8s_apps/appThree/[environment]**: demonstrates how to shift some shared components out of a instance directories and into a shared parent.
-- **k8s_apps/appFour/[environment]**: demonstrates how defaults and templates can be used to drastically reduce boilerplate
+- **k8s_apps/appThree/[environment]**: demonstrates how you can move components up towards root to reduce duplicate boilerplate. It also makes use of `cue.mod/usr` merging, to impose additional schema restrictions and further reduce boilerplate.
+
+> **TODO:** - **k8s_apps/appFour/[environment]**: demonstrates how additional schema and transformers can be introduced to provide a more concise interface to users
 
 
 ## Tasks

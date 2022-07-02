@@ -1,60 +1,32 @@
 package kube
 
-kubernetes: {
-	[string]: appFour: {
-		metadata: {
-			namespace: "appFour"
+drizlyApp: {
+	metadata: {
+		name: "app4"
+		labels: {
+			repo: "drizlyinc/hello"
+			team: "hades"
+			env:  "local"
 		}
 	}
-
-	namespace: appFour: {}
-	deployment: appFour: {
-		spec: {
-			minReadySeconds:      10
-			replicas:             2
-			revisionHistoryLimit: 10
-			selector: matchLabels: name: "appFour"
-			template: {
-				metadata: labels: name: "appFour"
-				spec: containers: [{
-					env: [{
-						name:  "PORT"
-						value: "80"
-					}]
-					image:           "ealen/echo-server:0.5.1"
-					imagePullPolicy: "IfNotPresent"
-					name:            "appFour"
-					ports: [{
-						containerPort: 80
-						name:          "api"
-					}]
-				}]
+	spec: {
+		always: app: {
+			imageTag: "kasjafdgbjioaw"
+      replicas: 3
+			env: {
+				APP_WHATEVER: "okayFine"
+				APP_ENV:      metadata.labels.env
+			}
+			networking: ingress: {
+				public:     true
+				port:       8080
+				publicPath: "/app4"
 			}
 		}
-	}
-	service: appFour: {
-		spec: {
-			ports: [{
-				name:       "appFour-api"
-				port:       80
-				targetPort: 80
-			}]
-			selector: name: "appFour"
+		jobs: migrator: {
+			trigger:  "preDeploy"
+			imageTag: "kasjafdgbjioaw"
 		}
-	}
-	ingress: appFour: {
-		spec: {
-			ingressClassName: "nginx"
-			rules: [{
-				http: paths: [{
-					backend: service: {
-						name: "appFour"
-						port: number: 80
-					}
-					path:     "/"
-					pathType: "Prefix"
-				}]
-			}]
-		}
+		backingServices: db: type: "postgres"
 	}
 }
