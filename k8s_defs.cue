@@ -22,23 +22,14 @@ k8sObjects: [
 	for object in kind {object},
 ]
 
-// objects: [ for v in objectSets for x in v {x}]
-
-// objectSets: [
-//  service,
-//  deployment,
-//  namespace,
-//  ingress,
-// ]
-
 kubernetes: {
-	namespace: [string]:  core_v1.#Namespace
-	deployment: [string]: apps_v1.#Deployment
-	service: [string]:    core_v1.#Service
-	ingress: [string]:    networking_v1.#Ingress
+	namespace: [string]:  core_v1.#Namespace & {apiVersion:     "v1"}
+	deployment: [string]: apps_v1.#Deployment & {apiVersion:    "apps/v1"}
+	service: [string]:    core_v1.#Service & {apiVersion:       "v1"}
+	ingress: [string]:    networking_v1.#Ingress & {apiVersion: "networking.k8s.io/v1"}
 }
 
-// Things used _for now_ for loose validation. Will likely go away soon, or be otherwise refactored
+// Things used _for now_ for loose YAML validation. Will likely go away soon, or be otherwise refactored
 // #Schema: core_v1.#Namespace | apps_v1.#Deployment | core_v1.#Service | networking_v1.#Ingress
 #Schema: #Namespace | #Deployment | #Service | #Ingress
 
