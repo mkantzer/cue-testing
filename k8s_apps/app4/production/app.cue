@@ -1,3 +1,3 @@
 package kube
 
-kubernetes: [string]: appFour: metadata: labels: env: "production"
+drizlyApp: metadata: labels: env: "production"

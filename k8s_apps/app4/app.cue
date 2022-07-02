@@ -6,7 +6,6 @@ drizlyApp: {
 		labels: {
 			repo: "drizlyinc/hello"
 			team: "hades"
-			env:  "local"
 		}
 	}
 	spec: {

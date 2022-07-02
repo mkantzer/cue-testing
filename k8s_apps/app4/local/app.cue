@@ -1,3 +1,3 @@
 package kube
 
-kubernetes: [string]: appFour: metadata: labels: env: "local"
+drizlyApp: metadata: labels: env: "local"
