@@ -17,3 +17,7 @@ Discussion: A Cue based Approach to k8s manifests:
 - https://github.com/slewiskelly/cuek8s
 
 and then maybe also playing around with some k8s tooling?
+
+
+To get argocd to recognize cuelang:
+- https://github.com/zoetrope/argocd-cue 
