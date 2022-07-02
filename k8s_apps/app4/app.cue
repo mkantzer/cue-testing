@@ -3,12 +3,7 @@ package kube
 kubernetes: {
 	[string]: appFour: {
 		metadata: {
-			name:      "appFour"
 			namespace: "appFour"
-			labels: {
-				name: "appFour"
-				env:  string
-			}
 		}
 	}
 
