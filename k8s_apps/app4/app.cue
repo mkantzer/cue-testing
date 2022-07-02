@@ -12,7 +12,7 @@ kubernetes: {
 		}
 	}
 
-	// namespace: appFour: {}
+	namespace: appFour: {}
 	deployment: appFour: {
 		spec: {
 			minReadySeconds:      10

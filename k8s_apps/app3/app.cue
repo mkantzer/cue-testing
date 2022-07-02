@@ -1,9 +1,7 @@
 package kube
 
 kubernetes: {
-	namespace: appThree: {
-		apiVersion: "v1"
-		kind:       "Namespace"
+	[string]: appThree: {
 		metadata: {
 			name:      "appThree"
 			namespace: "appThree"
@@ -13,17 +11,9 @@ kubernetes: {
 			}
 		}
 	}
+
+	namespace: appThree: {}
 	deployment: appThree: {
-		apiVersion: "apps/v1"
-		kind:       "Deployment"
-		metadata: {
-			name:      "appThree"
-			namespace: "appThree"
-			labels: {
-				name: "appThree"
-				env:  string
-			}
-		}
 		spec: {
 			minReadySeconds:      10
 			replicas:             2
@@ -48,16 +38,6 @@ kubernetes: {
 		}
 	}
 	service: appThree: {
-		apiVersion: "v1"
-		kind:       "Service"
-		metadata: {
-			labels: {
-				name: "appThree"
-				env:  string
-			}
-			name:      "appThree"
-			namespace: "appThree"
-		}
 		spec: {
 			ports: [{
 				name:       "appThree-api"
@@ -68,16 +48,6 @@ kubernetes: {
 		}
 	}
 	ingress: appThree: {
-		apiVersion: "networking.k8s.io/v1"
-		kind:       "Ingress"
-		metadata: {
-			name:      "appThree"
-			namespace: "appThree"
-			labels: {
-				name: "appThree"
-				env:  string
-			}
-		}
 		spec: {
 			ingressClassName: "nginx"
 			rules: [{
