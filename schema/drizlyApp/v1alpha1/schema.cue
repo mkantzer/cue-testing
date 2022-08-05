@@ -54,17 +54,23 @@ import (
 	}
 	k8sOutput: {
 		let m = metadata
+		[string]: [string]: metadata: labels: {
+			repo: m.labels.repo
+			team: m.labels.team
+			env:  m.labels.env
+			app:  m.name
+		}
+
+		namespace: "\(m.name)": {}
+
 		for a in spec.always {
 			let deploymentName = "\(m.name)-\(a.name)"
 			deployment: "\(deploymentName)": apps_v1.#Deployment & {
 				metadata: {
-					name: deploymentName
+					name:      deploymentName
+					namespace: m.name
 					labels: {
 						name: deploymentName
-						repo: m.labels.repo
-						team: m.labels.team
-						env:  m.labels.env
-						app:  m.name
 					}
 				}
 				spec: {
