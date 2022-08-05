@@ -9,7 +9,7 @@ drizlyApp: {
 		}
 	}
 	spec: {
-		always: app: {
+		persistent: app: {
 			imageTag: "kasjafdgbjioaw"
 			replicas: 3
 			env: {

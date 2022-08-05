@@ -13,23 +13,27 @@ import (
 	// rbac_v1 "k8s.io/api/rbac/v1"
 )
 
+#DrizlyAppMetadata: {
+	name: labels.app
+	labels: [string]: string
+	labels: {
+		app:  string
+		name: string
+		repo: string
+		team: string
+		env:  "local" | "integration" | "production"
+		...
+	}
+}
+
+
+
 #DrizlyApp: {
 	apiVersion: "v1alpha1"
 	kind:       "DrizlyApp"
-	metadata: {
-		name: string
-		labels: [string]: string
-		// these might be better as annotations:
-		labels: {
-			name: metadata.name
-			repo: string
-			team: string
-			env:  "local" | "integration" | "production"
-			...
-		}
-	}
+	metadata:   #DrizlyAppMetadata
 	spec: {
-		always: [Name=_]: {
+		persistent: [Name=_]: {
 			name:      Name
 			replicas:  *3 | int
 			imageName: "drizlyinc/\(metadata.name)/\(Name)"
@@ -52,6 +56,7 @@ import (
 			type: "postgres" | "s3" | "redis"
 		}
 	}
+
 	k8sOutput: {
 		let m = metadata
 		[string]: [string]: metadata: labels: {
@@ -60,10 +65,9 @@ import (
 			env:  m.labels.env
 			app:  m.name
 		}
-
 		namespace: "\(m.name)": {}
-
-		for a in spec.always {
+		...
+		for a in spec.persistent {
 			let deploymentName = "\(m.name)-\(a.name)"
 			deployment: "\(deploymentName)": apps_v1.#Deployment & {
 				metadata: {
