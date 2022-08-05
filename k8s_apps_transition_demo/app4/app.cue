@@ -11,7 +11,7 @@ drizlyApp: {
 	spec: {
 		always: app: {
 			imageTag: "kasjafdgbjioaw"
-      replicas: 3
+			replicas: 3
 			env: {
 				APP_WHATEVER: "okayFine"
 				APP_ENV:      metadata.labels.env
