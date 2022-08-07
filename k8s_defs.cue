@@ -16,13 +16,6 @@ import (
 kubernetes: [Kind=_]: [Name=_]: {
 	apiVersion: string
 	kind:       strings.ToTitle(Kind)
-	metadata: {
-		name: Name
-		labels: {
-			name: Name
-			env:  string
-		}
-	}
 }
 
 k8sObjects: [

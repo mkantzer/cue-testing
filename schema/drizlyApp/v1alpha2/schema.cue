@@ -20,10 +20,18 @@ drizlyApp: #DrizlyApp
 	apiVersion: "v1alpha2"
 	kind:       "DrizlyApp"
 	metadata:   #DrizlyAppMetadata
+	spec: persistent: [Name=_]: #PersistentSpec & {
+		name:      Name
+		imageName: string | *"drizlyinc/\(metadata.name)/\(Name)"
+		imageTag:  string | *"latest"
+		...
+	}
 
 	// let m = metadata
-	_coreGen: {}
+	_coreGen:       _
+	_persistentGen: _
 	k8sOutput: {
 		_coreGen
+		_persistentGen
 	}
 }

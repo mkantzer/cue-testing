@@ -6,12 +6,10 @@ import (
 
 #DrizlyApp: {
 	metadata: _
+	spec:     _
 
 	let m = metadata
-	_coreGen: {
-		namespace: "\(m.name)": core_v1.#Namespace & {
-			metadata: m
-		}
+	_coreGen: namespace: "\(m.name)": core_v1.#Namespace & {
+		metadata: m
 	}
-
 }
