@@ -24,6 +24,8 @@ drizlyApp: #DrizlyApp
 		name:      Name
 		imageName: string | *"drizlyinc/\(metadata.name)/\(Name)"
 		imageTag:  string | *"latest"
+		replicas: int | *3
+		env: [string]: string
 		...
 	}
 

@@ -13,5 +13,9 @@ drizlyApp: {
 	spec: persistent: webserver: {
 		imageName: "drizlyinc/app5/webserver"
 		imageTag:  "yoDawg"
+		replicas:  5
+		env: {
+			APP_SOME_VARIABLE: "yeah my dude"
+		}
 	}
 }

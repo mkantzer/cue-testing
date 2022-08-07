@@ -19,9 +19,9 @@ import (
 	let s = spec
 
 	_persistentGen: deployment: {
-		for n, v in s.persistent {
+		for pName, pValue in s.persistent {
 			// deployment: "\(n)": app_v1.#Deployment & {
-			let dep_name = "\(m.name)-\(n)"
+			let dep_name = "\(m.name)-\(pName)"
 			"\(dep_name)": app_v1.#Deployment & {
 				apiVersion: "apps/v1"
 				kind:       "Deployment"
@@ -29,9 +29,9 @@ import (
 					labels: name: dep_name
 				}
 				spec: {
-					replicas: *1 | int
+					replicas: pValue.replicas
 					selector: matchLabels: name: dep_name
-					revisionHistoryLimit: *5 | int
+					revisionHistoryLimit: int | pValue.revisionHistoryLimit | *10
 					template: {
 						metadata: {
 							name:   dep_name
@@ -41,7 +41,14 @@ import (
 						}
 						spec: containers: [{
 							name:            dep_name
+							image:           "\(pValue.imageName):\(pValue.imageTag)"
 							imagePullPolicy: "IfNotPresent"
+							env: [
+								for k, v in pValue.env {
+									name:  k
+									value: v
+								}
+							]
 						}]
 					}
 				}
