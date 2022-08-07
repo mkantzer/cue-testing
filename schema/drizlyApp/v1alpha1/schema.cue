@@ -26,8 +26,6 @@ import (
 	}
 }
 
-
-
 #DrizlyApp: {
 	apiVersion: "v1alpha1"
 	kind:       "DrizlyApp"
@@ -59,14 +57,18 @@ import (
 
 	k8sOutput: {
 		let m = metadata
+
 		[string]: [string]: metadata: labels: {
 			repo: m.labels.repo
 			team: m.labels.team
 			env:  m.labels.env
 			app:  m.name
+			...
 		}
 		namespace: "\(m.name)": {}
 		...
+
+		
 		for a in spec.persistent {
 			let deploymentName = "\(m.name)-\(a.name)"
 			deployment: "\(deploymentName)": apps_v1.#Deployment & {
