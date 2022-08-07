@@ -8,7 +8,7 @@ kubernetes: ingress: appTwo: {
 		namespace: "appTwo"
 		labels: {
 			name: "appTwo"
-			env: "integration"
+			env:  "integration"
 		}
 	}
 	spec: {

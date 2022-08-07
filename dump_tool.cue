@@ -2,9 +2,7 @@ package kube
 
 import "encoding/yaml"
 
-command: dump: {
-	task: print: {
-		kind: "print"
-		text: yaml.MarshalStream(k8sObjects)
-	}
+command: dump: task: print: {
+	kind: "print"
+	text: yaml.MarshalStream(k8sObjects)
 }

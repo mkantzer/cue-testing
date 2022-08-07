@@ -34,7 +34,7 @@ import (
 		persistent: [Name=_]: {
 			name:      Name
 			replicas:  *3 | int
-			imageName: "drizlyinc/\(metadata.name)/\(Name)"
+			imageName: string | *"drizlyinc/\(metadata.name)/\(Name)"
 			imageTag:  string | *"latest"
 			env: [Key=_]: string
 			networking: [PortName=_]: {
@@ -50,9 +50,7 @@ import (
 			cmd:       string | *"up"
 			env: [Key=_]: string
 		}
-		backingServices: [BackingName=_]: {
-			type: "postgres" | "s3" | "redis"
-		}
+		backingServices: [BackingName=_]: type: "postgres" | "s3" | "redis"
 	}
 
 	k8sOutput: {
@@ -66,18 +64,14 @@ import (
 			...
 		}
 		namespace: "\(m.name)": {}
-		...
 
-		
 		for a in spec.persistent {
 			let deploymentName = "\(m.name)-\(a.name)"
 			deployment: "\(deploymentName)": apps_v1.#Deployment & {
 				metadata: {
 					name:      deploymentName
 					namespace: m.name
-					labels: {
-						name: deploymentName
-					}
+					labels: name: deploymentName
 				}
 				spec: {
 					replicas: a.replicas
@@ -93,5 +87,6 @@ import (
 				...
 			}
 		}
+		...
 	}
 }

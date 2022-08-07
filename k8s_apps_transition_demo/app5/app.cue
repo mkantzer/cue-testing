@@ -10,4 +10,8 @@ drizlyApp: {
 			team: "justMike"
 		}
 	}
+	spec: persistent: webserver: {
+		imageName: "drizlyinc/app5/webserver"
+		imageTag:  "yoDawg"
+	}
 }
