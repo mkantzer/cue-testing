@@ -33,8 +33,12 @@ import (
 					selector: matchLabels: name: dep_name
 					revisionHistoryLimit: *5 | int
 					template: {
-						metadata: m
-						metadata: labels: name: dep_name
+						metadata: {
+							name:   dep_name
+							labels: m.labels & {
+								name: dep_name
+							}
+						}
 						spec: containers: [{
 							name:            dep_name
 							imagePullPolicy: "IfNotPresent"
