@@ -28,4 +28,5 @@ kubernetes: {
 	deployment: [string]: apps_v1.#Deployment
 	service: [string]:    core_v1.#Service
 	ingress: [string]:    networking_v1.#Ingress
+	...
 }
