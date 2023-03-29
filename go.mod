@@ -1,4 +1,4 @@
-module github.com/mikekantzer-drizly/cue-testing
+module github.com/mkantzer/cue-testing
 
 go 1.18
 

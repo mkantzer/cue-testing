@@ -1,3 +1,3 @@
 package kube
 
-drizlyApp: metadata: labels: env: "production"
+mikeApp: metadata: labels: env: "production"

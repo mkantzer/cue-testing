@@ -8,7 +8,7 @@ This repo is intended to demonstrate and track my attempts to go from "raw yaml"
 
 ## Structure
 
-This repo is the _module_ called "github.com/mikekantzer-drizly/cue-testing"
+This repo is the _module_ called "github.com/mkantzer/cue-testing"
 The majority of the files in this module belong to the `kube` package.
 
 Each valid working directory (ex: k8s_apps/[appName]/[environment], or similar for infra) is an INSTANCE. Each `instance` contains the working directory, as well as all ancestor directories within the module. 

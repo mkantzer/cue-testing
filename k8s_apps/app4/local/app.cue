@@ -1,3 +1,3 @@
 package kube
 
-drizlyApp: metadata: labels: env: "local"
+mikeApp: metadata: labels: env: "local"
