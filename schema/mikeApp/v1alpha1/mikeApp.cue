@@ -1,8 +1,8 @@
 package v1alpha1
 
-#DrizlyApp: {
+#MikeApp: {
 	apiVersion: "v1alpha1"
-	kind:       "DrizlyApp"
+	kind:       "MikeApp"
 	metadata: {
 		name: string
 		labels: [string]: string
@@ -19,7 +19,7 @@ package v1alpha1
 		always: [Name=_]: {
 			name: Name
 			replicas:  *3 | int
-			imageName: "drizlyinc/\(metadata.name)/\(Name)"
+			imageName: "mkantzer/\(metadata.name)/\(Name)"
 			imageTag:  string | *"latest"
 			env: [Key=_]: string
       networking: [PortName=_]: {
@@ -30,7 +30,7 @@ package v1alpha1
 		}
     jobs: [Job=_]: {
       trigger: "preDeploy" | "cron" | "manual" | "event"
-      imageName: "drizlyinc/\(metadata.name)/\(Job)"
+      imageName: "mkantzer/\(metadata.name)/\(Job)"
       imageTag: string | *"latest"
 			cmd: string | *"up"
       env: [Key=_]: string

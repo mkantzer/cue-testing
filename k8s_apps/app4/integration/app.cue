@@ -1,3 +1,3 @@
 package kube
 
-drizlyApp: metadata: labels: env: "integration"
+mikeApp: metadata: labels: env: "integration"

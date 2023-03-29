@@ -1,10 +1,10 @@
 package kube
 
-drizlyApp: {
+mikeApp: {
 	metadata: {
 		name: "app4"
 		labels: {
-			repo: "drizlyinc/hello"
+			repo: "mkantzer/hello"
 			team: "hades"
 		}
 	}
